@@ -1,14 +1,16 @@
+import { TouchableOpacityProps } from "react-native"
+
 import { MealCardContainer, StatusLight, Time, Title } from "./styles"
 
-type Props = {
+type Props = TouchableOpacityProps & {
   title: string
   time: Date
   fromDiet: boolean
 }
 
-export const MealCard = ({ title, time, fromDiet }: Props) => {
+export const MealCard = ({ title, time, fromDiet, ...rest }: Props) => {
   return (
-    <MealCardContainer>
+    <MealCardContainer {...rest}>
       <Time>
         {time.toLocaleString([], { hour: '2-digit', minute: '2-digit' })}
       </Time>

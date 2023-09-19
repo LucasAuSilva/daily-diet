@@ -6,9 +6,9 @@ import {
   useFonts
 } from '@expo-google-fonts/nunito-sans';
 
-import { Home } from '@/screens/Home';
-import { Loading } from '@/components/Loading';
 import { theme } from '@/themes';
+import { Routes } from '@/routes';
+import { Loading } from '@/components/Loading';
 
 export default function App() {
   let [fontsLoaded] = useFonts({
@@ -25,7 +25,7 @@ export default function App() {
       />
       {!fontsLoaded
         ? <Loading />
-        : <Home />
+        : <Routes />
       }
     </ThemeProvider>
   );

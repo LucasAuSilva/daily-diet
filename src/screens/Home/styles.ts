@@ -1,4 +1,6 @@
 import { SafeAreaView } from 'react-native-safe-area-context';
+import { LinearGradient } from 'expo-linear-gradient';
+
 import styled, { css } from 'styled-components/native';
 
 export const HomeContainer = styled(SafeAreaView)`
@@ -8,6 +10,8 @@ export const HomeContainer = styled(SafeAreaView)`
   padding: 32px 24px;
 
   background-color: ${({ theme }) => theme.colors.gray_7};
+
+  position: relative;
 `
 
 export const HeaderContainer = styled.View`

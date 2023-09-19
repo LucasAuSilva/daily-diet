@@ -1,3 +1,4 @@
+import { TouchableOpacity } from "react-native";
 import styled, { css } from "styled-components/native";
 
 export type StatusLightStyleProp = boolean 
@@ -6,7 +7,7 @@ type Props = {
   isOk: StatusLightStyleProp
 }
 
-export const MealCardContainer = styled.View`
+export const MealCardContainer = styled(TouchableOpacity)`
   width: 100%;
 
   padding: 14px 16px 14px 12px;
