@@ -1,7 +1,8 @@
 import { useState } from 'react';
-import DateTimePicker from '@react-native-community/datetimepicker';
+import DateTimePickerModal from "react-native-modal-datetime-picker";
 
 import { DateEntry, DateInputContainer, DateLabel } from './styles'
+import { Platform, Pressable } from 'react-native';
 
 type Props = {
   label: string
@@ -12,11 +13,14 @@ export const DateInput = ({ label, type }: Props) => {
   const [date, setDate] = useState<Date | undefined>(undefined);
   const [show, setShow] = useState(false);
 
-  const onChangeSelectedDate = (_: any, newDate?: Date) => {
-    const currentDate = newDate;
+  const handleDatePickerConfirm = (newDate?: Date) => {
+    setDate(newDate);
     setShow(false)
-    setDate(currentDate);
   };
+
+  const handleDatePickerCancel = () => {
+    setShow(false)
+  }
 
   const showDateTimePicker = () => {
     setShow(true);
@@ -40,23 +44,25 @@ export const DateInput = ({ label, type }: Props) => {
   }
 
   return (
-    <DateInputContainer onPress={showDateTimePicker}>
+    <DateInputContainer>
       <DateLabel>{label}</DateLabel>
-      <DateEntry
-        editable={false}
-        value={ type === 'date'
-          ? formatDateToString(date)
-          : formatTimeToString(date)}
-      />
-      {show && (
-        <DateTimePicker
-          testID="dateTimePicker"
-          value={date ?? new Date()}
+        <DateTimePickerModal
+          display={Platform.OS === 'ios' ? 'spinner' : 'calendar'}
+          isVisible={show}
           mode={type}
           is24Hour={true}
-          onChange={onChangeSelectedDate}
+          onConfirm={handleDatePickerConfirm}
+          onCancel={handleDatePickerCancel}
         />
-      )}
+        <Pressable onPress={showDateTimePicker}>
+          <DateEntry
+            editable={false}
+            onPressIn={showDateTimePicker}
+            value={ type === 'date'
+              ? formatDateToString(date)
+              : formatTimeToString(date)}
+          />
+        </Pressable>
     </DateInputContainer>
   )
 }

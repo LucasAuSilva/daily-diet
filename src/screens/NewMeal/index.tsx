@@ -12,6 +12,7 @@ import {
   SideInputsContainer
 } from './styles'
 import { DateInput } from '@/components/DateInput'
+import { Button } from '@/components/Button'
 
 
 export const NewMeal = () => {
@@ -61,6 +62,9 @@ export const NewMeal = () => {
             />
           </SideInputsContainer>
         </FormContainer>
+        <Button
+          label='Cadastrar refeição'
+        />
       </NewMealMainContainer>
     </NewMealContainer>
   )

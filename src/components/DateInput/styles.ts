@@ -1,7 +1,9 @@
-import { TextInput, TouchableOpacity } from 'react-native'
+import { TextInput, TouchableOpacity, View } from 'react-native'
+import DateTimePicker from '@react-native-community/datetimepicker';
+
 import styled, { css } from 'styled-components/native'
 
-export const DateInputContainer = styled(TouchableOpacity)`
+export const DateInputContainer = styled(View)`
   flex: 1;
 
   min-height: 80px;
@@ -34,6 +36,12 @@ export const DateEntry = styled(TextInput).attrs(({ theme }) => ({
     color: ${theme.colors.gray_1};
     border: 1px solid ${theme.colors.gray_5};
   `}
+`
 
+export const CustomDatePicker = styled(DateTimePicker)`
+  width: 320px;
+  height: 260px;
+  display: absolute;
+  justify-content: center;
 `
 
