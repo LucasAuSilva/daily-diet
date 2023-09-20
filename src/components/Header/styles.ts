@@ -1,13 +1,24 @@
 import { TouchableOpacity } from 'react-native'
 import { ArrowLeft } from 'phosphor-react-native'
 
-import styled, { css } from 'styled-components/native'
+import styled, { DefaultTheme, css } from 'styled-components/native'
 
-export type HeaderTypeStyleProps = 'Primary' | 'Secondary'
+export type HeaderTypeStyleProps = 'Primary' | 'Secondary' | 'Default'
 
 type Props = {
   isHighlight: boolean
   type: HeaderTypeStyleProps
+}
+
+const backgroundColorVariants = (theme: DefaultTheme, type: HeaderTypeStyleProps) => {
+  switch(type) {
+    case 'Primary':
+      return theme.colors.green_light
+    case 'Secondary':
+      return theme.colors.red_light
+    default:
+      return theme.colors.gray_5
+  }
 }
 
 export const HeaderContainer = styled.View<Props>`
@@ -25,9 +36,7 @@ export const HeaderContainer = styled.View<Props>`
   flex-direction: row;
   
   background-color: ${({ theme, type }) => 
-    type === 'Primary'
-      ? theme.colors.green_light
-      : theme.colors.red_light};
+      backgroundColorVariants(theme, type)};
 `
 
 export const Title = styled.Text`

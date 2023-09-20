@@ -11,7 +11,9 @@ export const Tag = ({ label, type = 'Yes' }: Props) => {
       <StatusLight
         type={type}
       />
-      <Label>{label}</Label>
+      <Label>
+        {label}
+      </Label>
     </TagContainer>
   )
 }

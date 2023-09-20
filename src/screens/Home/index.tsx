@@ -63,6 +63,13 @@ export const Home = () => {
       dateTime: new Date(2023, 8, 19, 21, 24),
       fromDiet: true
     },
+    {
+      id: new Date().getMilliseconds().toString(),
+      name: 'Fruta',
+      description: 'Maça',
+      dateTime: new Date(),
+      fromDiet: true
+    },
   ])
 
   const navigation = useNavigation()
@@ -85,7 +92,7 @@ export const Home = () => {
 
   const dateFormatMealCard = (date: Date) => {
     const day = date.getDate().toString().padStart(2, '0')
-    const month = date.getMonth().toString().padStart(2, '0')
+    const month = (date.getMonth() + 1).toString().padStart(2, '0')
     const year = date.getFullYear().toString().slice(2, 4)
     return `${day}.${month}.${year}`
   }

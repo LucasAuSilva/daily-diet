@@ -2569,6 +2569,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@react-native-community/datetimepicker@npm:7.2.0":
+  version: 7.2.0
+  resolution: "@react-native-community/datetimepicker@npm:7.2.0"
+  dependencies:
+    invariant: ^2.2.4
+  checksum: 4ec9de24573d654a2632818de15a1b7c6f41febbaa52aa543e7ef133f507b8b4fe8c0a08a0af34907c283b7be3cb9d5a52db216a2925c8eb96f52bf49a9f2b33
+  languageName: node
+  linkType: hard
+
 "@react-native/assets-registry@npm:^0.72.0":
   version: 0.72.0
   resolution: "@react-native/assets-registry@npm:0.72.0"
@@ -4132,6 +4141,7 @@ __metadata:
   dependencies:
     "@babel/core": ^7.20.0
     "@expo-google-fonts/nunito-sans": ^0.2.3
+    "@react-native-community/datetimepicker": 7.2.0
     "@react-navigation/native": ^6.1.7
     "@react-navigation/native-stack": ^6.9.13
     "@types/react": ~18.2.14

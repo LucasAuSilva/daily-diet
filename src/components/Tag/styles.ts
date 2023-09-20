@@ -7,12 +7,16 @@ type Props = {
 }
 
 export const TagContainer = styled.View`
-  padding: 16px 8px;
+  padding: 8px 16px;
   gap: 8px;
 
   flex-direction: row;
 
+  align-self: flex-start;
   align-items: center;
+
+  background-color: ${({ theme }) => theme.colors.gray_6};
+  border-radius: 1000px;
 `
 
 export const Label = styled.Text`

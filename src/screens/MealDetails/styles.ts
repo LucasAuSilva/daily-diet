@@ -27,7 +27,7 @@ export const MealDetailsMainContainer = styled(SafeAreaView)`
   top: 104px;
 
   width: 100%;
-  height: 100%;
+  height: 88%;
 `
 
 export const InfoContainer = styled.View`
@@ -55,4 +55,10 @@ export const Description = styled.Text`
     color: ${theme.colors.gray_2};
   `}
 ` 
+
+export const ActionContainer = styled.View`
+  margin-top: auto;
+  margin-bottom: 34px;
+  gap: 8px;
+`
 

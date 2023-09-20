@@ -27,3 +27,4 @@ export const Header = ({ title, onBackPress, type = 'Primary', isHighlight = fal
     </HeaderContainer>
   )
 }
+

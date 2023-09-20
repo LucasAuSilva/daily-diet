@@ -5,6 +5,7 @@ import { Tag } from '@/components/Tag'
 import { Header } from '@/components/Header'
 
 import {
+    ActionContainer,
   Description,
   InfoContainer,
   MealDetailsContainer,
@@ -12,6 +13,7 @@ import {
   MealHighlightContainer,
   Title
 } from './styles'
+import { Button } from '@/components/Button'
 
 type RouteParams = {
   meal: Meal
@@ -28,11 +30,23 @@ export const MealDetails = () => {
   }
   
   const formatDateToString = () => {
-    const day = meal.dateTime.getDate()
-    const month = meal.dateTime.getMonth()
+    const day = meal.dateTime
+      .getDate()
+      .toString()
+      .padStart(2, '0')
+    const month = (meal.dateTime
+      .getMonth() + 1)
+      .toString()
+      .padStart(2, '0')
     const year = meal.dateTime.getFullYear()
-    const hour = meal.dateTime.getHours()
-    const minutes = meal.dateTime.getMinutes()
+    const hour = meal.dateTime
+      .getHours()
+      .toString()
+      .padStart(2, '0')
+    const minutes = meal.dateTime
+      .getMinutes()
+      .toString()
+      .padStart(2, '0')
     return `${day}/${month}/${year} às ${hour}:${minutes}`
   }
   
@@ -41,6 +55,7 @@ export const MealDetails = () => {
       <Header
         title='Refeição'
         onBackPress={handleHeaderBackButton}
+        type={meal.fromDiet ? 'Primary' : 'Secondary'}
       />
       <MealDetailsMainContainer>
         <InfoContainer>
@@ -52,10 +67,21 @@ export const MealDetails = () => {
             <Title textType={'Default'}>Data e Hora</Title>
             <Description>{formatDateToString()}</Description>
           </MealHighlightContainer>
-          <Tag
-            label='dentro da dieta'
-          />
+          {meal.fromDiet 
+            ? <Tag label='dentro da dieta'/>
+            : <Tag label='fora da dieta' type='No'/>}
         </InfoContainer>
+        <ActionContainer>
+          <Button
+            label='Editar Refeição'
+            icon={{ name: 'PencilSimpleLine' }}
+          />
+          <Button
+            label='Excluir Refeição'
+            icon={{ name: 'Trash'}}
+            type='Outline'
+          />
+        </ActionContainer>
       </MealDetailsMainContainer>
     </MealDetailsContainer>
   )
